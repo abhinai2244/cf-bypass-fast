@@ -48,31 +48,6 @@ pm2 save
 npm start
 ```
 
-### VPS Installation (Ubuntu/Debian)
-```bash
-# Update system
-sudo apt update && sudo apt upgrade -y
-
-# Install Node.js 18+
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-
-# Clone and setup
-git clone https://github.com/tanjiro517/cf-bypass-fast
-cd cf-bypass
-npm install
-
-# Run with PM2 (recommended)
-npm install -g pm2
-pm2 start index.js --name "cf-bypass"
-pm2 startup
-pm2 save
-
-# Or run directly
-npm start
-```
-
 ### Local Development
 ```bash
 npm install
