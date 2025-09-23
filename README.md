@@ -30,7 +30,7 @@ sudo apt install -y google-chrome-stable
 sudo apt install -y xvfb
 
 # Clone and setup
-git clone <repository-url>
+git clone https://github.com/tanjiro517/cf-bypass-fast
 cd cf-bypass
 npm install
 
@@ -59,7 +59,7 @@ sudo apt-get install -y nodejs
 
 
 # Clone and setup
-git clone <repository-url>
+git clone https://github.com/tanjiro517/cf-bypass-fast
 cd cf-bypass
 npm install
 
