@@ -1,4 +1,4 @@
-# cloudflare bypass with super fast speed 🚀🚀
+# cloudflare bypass with super fast speed 🚀🚀💖
 
 A Node.js service that automates Chromium to bypass **Cloudflare IUAM** and **Turnstile challenges**, returning valid `cf_clearance` cookies or tokens with proxy support.
 
