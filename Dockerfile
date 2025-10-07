@@ -1,4 +1,3 @@
-# Use official Node.js base image
 FROM node:20-slim
 
 # Install Chrome and Xvfb dependencies
@@ -13,19 +12,19 @@ RUN apt update && apt install -y \
 # Set working directory
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Copy and install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy the rest of the app
+# Copy app code
 COPY . .
 
-# Heroku sets PORT dynamically via env var
-ENV PORT=44458
+# Heroku sets PORT dynamically
+ENV PORT=9646
 EXPOSE $PORT
 
 # Start Xvfb and run the bot
 CMD rm -f /tmp/.X99-lock && \
-    Xvfb :99 -screen 0 1024x768x24 & \
+    Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 & \
     export DISPLAY=:99 && \
     node index.js
