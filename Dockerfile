@@ -1,7 +1,6 @@
-# Base image with Node.js and Chrome dependencies
 FROM node:20-slim
 
-# Install Chrome and Xvfb
+# Install Chrome and dependencies
 RUN apt update && apt install -y \
     wget gnupg ca-certificates xvfb \
     fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 \
@@ -13,17 +12,18 @@ RUN apt update && apt install -y \
 # Set working directory
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Copy and install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy the rest of the app
+# Copy app code
 COPY . .
 
-# Expose port (adjust if needed)
-EXPOSE 3000
+# Expose port (match your app's port)
+EXPOSE 10000
 
-# Start Xvfb and run the app
-CMD Xvfb :99 -screen 0 1024x768x24 & \
+# Start Xvfb and run the bot
+CMD rm -f /tmp/.X99-lock && \
+    Xvfb :99 -screen 0 1024x768x24 & \
     export DISPLAY=:99 && \
     npm start
