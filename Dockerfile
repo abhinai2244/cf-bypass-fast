@@ -14,10 +14,14 @@ WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
-
 COPY . .
 
+# Heroku dynamic port
 ENV PORT=9646
 EXPOSE $PORT
 
+# ✅ Tell your bot where Chrome is
+ENV CHROME_PATH=/usr/bin/google-chrome-stable
+
+# ✅ Use xvfb-run to manage display automatically
 CMD xvfb-run -a node index.js
